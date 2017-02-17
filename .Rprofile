@@ -39,5 +39,6 @@ options(tab.width = 2)
 }
 
 .Last <- function() {
+    write.table(.packages(all=TRUE), "~/R/InstalledPackages.txt")
     cat("\nGoodbye at ", date(), "\n")
 }
