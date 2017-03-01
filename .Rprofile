@@ -21,8 +21,10 @@ options(tab.width = 2)
     message("Getting Helps:")
     cat("Help manuals can be launched by command help.start()\n")
     cat("See also https://www.rdocumentation.org with package manuals.\n")
-    cat("Package manual can be obtained by command library(help='pkg')\n")
-    cat("Function manual can be obtained by command help('function')\n\n")
+    # cat("Package manual can be obtained by command library(help='pkg')\n")
+    # cat("Function manual can be obtained by command help('function')\n\n")
+    cat("R documentation can be obtained by ?<topic> or ??<topic> for fuzzy search\n")
+    cat("Function arguments can be obtained by args('function')\n\n")
     message("Getting Around:")
     cat("Invoke OS command: system('command')\n")
     cat("Run an R script: source('script.R')\n")
@@ -39,6 +41,8 @@ options(tab.width = 2)
 }
 
 .Last <- function() {
-    write.table(.packages(all=TRUE), "~/R/InstalledPackages.txt")
+    # write.table(.packages(all=TRUE), "~/R/InstalledPackages.txt")
+    session.packages <- .packages(all=TRUE)
+    save(session.packages, file="~/R/InstalledPackages.RData")
     cat("\nGoodbye at ", date(), "\n")
 }
